@@ -95,6 +95,10 @@ document.body.getElementsByClassName("content-wrapper")[0].addEventListener(
         }, 500);
       }
     }
+
+    if (window.location.pathname === "/signup2" || window.location.pathname === "/skift-til-barry2" && document.getElementsByClassName("zEWidget-launcher").length > 0) {
+      document.getElementsByClassName("zEWidget-launcher")[0].style = "display: none";
+    }
     
     if (window.location.pathname === "/signup2" && window.location.search === "?step=2") {
       if (document.getElementById("5ixrcodf")){
@@ -111,6 +115,30 @@ document.body.getElementsByClassName("content-wrapper")[0].addEventListener(
       }, 1500);
     } else {
       if (window.location.pathname === "/signup2") {
+        if (document.getElementById("5ixrcodf")){
+          document.getElementById("5ixrcodf").style.display = "block";
+        }
+        if (document.getElementById("pxzirt4l")){
+          document.getElementById("pxzirt4l").style.display = "none";
+        }
+      }
+    }
+
+    if (window.location.pathname === "/signup4" && window.location.search === "?step=2") {
+      if (document.getElementById("5ixrcodf")){
+        document.getElementById("5ixrcodf").style.display = "none";
+      }
+      if (document.getElementById("pxzirt4l")){
+        document.getElementById("pxzirt4l").style.display = "block";
+      }
+      setTimeout(function() {
+        var elem = document.getElementById("pxzirt4l");
+        if (elem) {
+          elem.scrollIntoView();
+        }
+      }, 1500);
+    } else {
+      if (window.location.pathname === "/signup4") {
         if (document.getElementById("5ixrcodf")){
           document.getElementById("5ixrcodf").style.display = "block";
         }
@@ -186,10 +214,12 @@ setTimeout(function() {
     };
   }
 
-  if (document.getElementById("roadmap-content")) {
+  if (document.getElementById("roadmap-content") && document.getElementsByClassName("navbar-fixed").length > 0) {
     document.getElementsByClassName("navbar-fixed")[0].classList.add('header-fixed');
   } else {
-    document.getElementsByClassName("navbar-fixed")[0].classList.remove('header-fixed');
+    if (document.getElementsByClassName("navbar-fixed").length > 0){
+      document.getElementsByClassName("navbar-fixed")[0].classList.remove('header-fixed');
+    }
   }
 
   if (document.getElementById("view-all-0")) {
