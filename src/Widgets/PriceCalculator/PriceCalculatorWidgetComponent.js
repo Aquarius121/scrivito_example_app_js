@@ -561,7 +561,7 @@ class PriceCalculatorWidget extends React.Component {
             {window.location.pathname != "/Pristjek-done2" && <a className="link" href={window.location.pathname == "/Pristjek-done3" ? "/signup2" : "/signup2"} target="blank" style={{ marginTop: 15, marginBottom: 15 }}>
               Skift til Barry online
             </a>}
-            <a href="/" style={{color: 'black'}}>Besøg getbarry.co</a>
+            <a href="/" style={{color: 'black'}}>Tilbage til getbarry.co</a>
           </div>
         )}
         {this.state.showAlert && <div className="pric_calc_alert">
