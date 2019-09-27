@@ -552,16 +552,16 @@ class PriceCalculatorWidget extends React.Component {
                 }
               </div>
             </div>
-            {window.location.pathname != "/Pristjek-done3" && <a className="link" href={ window.location.pathname == "/Pristjek-done2" ? "https://getbarry.app.link/r3hcH3cbcZ" : "https://getbarry.app.link/vrgOxox36Y"} target="blank" onClick={() => {}} style={{ marginBottom: 15 }}>
+            {window.location.pathname != "/Pristjek-done3" && <a className="link" href={ window.location.pathname == "/Pristjek-done2" ? "https://getbarry.app.link/r3hcH3cbcZ" : "https://getbarry.app.link/vrgOxox36Y"} target="_blank" onClick={() => {}} style={{ marginBottom: 15 }}>
               Hent app’en og skift til Barry
             </a>}
-            {/* {window.location.pathname != "/Pristjek-done2" && <a className="link" href={window.location.pathname == "/Pristjek-done3" ? "http://snip.ly/my6bee" : "https://snip.ly/q4xon5"} target="blank" style={{ marginTop: 15, marginBottom: 15 }}>
+            {/* {window.location.pathname != "/Pristjek-done2" && <a className="link" href={window.location.pathname == "/Pristjek-done3" ? "http://snip.ly/my6bee" : "https://snip.ly/q4xon5"} target="_blank" style={{ marginTop: 15, marginBottom: 15 }}>
               Skift til Barry online
             </a>} */}
-            {window.location.pathname != "/Pristjek-done2" && <a className="link" href={window.location.pathname == "/Pristjek-done3" ? "/signup2" : "/signup2"} target="blank" style={{ marginTop: 15, marginBottom: 15 }}>
+            {window.location.pathname != "/Pristjek-done2" && <a className="link" href={window.location.pathname == "/Pristjek-done3" ? "/signup2" : "/signup2"} target="_blank" style={{ marginTop: 15, marginBottom: 15 }}>
               Skift til Barry online
             </a>}
-            <a href="/" style={{color: 'black'}}>Tilbage til getbarry.co</a>
+            <a href={window.location.pathname == "/Pristjek-done3" ? "/skift-til-barry2" : "/"} target={window.location.pathname == "/Pristjek-done3" ? "_blank" : "_self"} style={{color: 'black'}}>Tilbage til getbarry.co</a>
           </div>
         )}
         {this.state.showAlert && <div className="pric_calc_alert">
