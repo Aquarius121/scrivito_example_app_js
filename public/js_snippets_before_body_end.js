@@ -51,6 +51,11 @@ function addUXList() {
   }, 500);
 }
 
+function zEWidgetOpen(tag) {
+  window.$zopim.livechat.window.show();
+  window.$zopim.livechat.addTags(tag);
+}
+
 function addWaitingList() {
   const params = {
     email: document.getElementsByClassName("send-link-input1")[0].value,
