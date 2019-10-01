@@ -3,26 +3,30 @@
 function setCookie(name, value, days) {
   let expires = "";
   if (days) {
-    let date = new Date();
+    const date = new Date();
     date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-    expires = `; expires=${  date.toUTCString()}`;
+    expires = `; expires=${date.toUTCString()}`;
   }
-  document.cookie = `${name  }=${  value || ""   }${expires  }; path=/`;
+  document.cookie = `${name}=${value || ""}${expires}; path=/`;
 }
 function getCookie(name) {
-  let nameEQ = `${name  }=`;
-  let ca = document.cookie.split(";");
-  for (var i = 0; i < ca.length; i++) {
+  const nameEQ = `${name}=`;
+  const ca = document.cookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
     let c = ca[i];
-    while (c.charAt(0) == " ") c = c.substring(1, c.length);
-    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    while (c.charAt(0) === " ") {
+      c = c.substring(1, c.length);
+    }
+    if (c.indexOf(nameEQ) === 0) {
+      return c.substring(nameEQ.length, c.length);
+    }
   }
   return null;
 }
 function eraseCookie(name) {
   document.cookie = `${name}=; Max-Age=-99999999;`;
 }
-let ckie = getCookie("scrivitobarryform");
+const ckie = getCookie("scrivitobarryform");
 
 function showTerms() {
   document.getElementById("terms-condition").className = "active";
@@ -39,15 +43,23 @@ function showUX() {
 
 function closeUX() {
   document.getElementById("first-popup-wrapper").style.display = "none";
-  document.getElementById("first-popup-wrapper").getElementsByClassName("thanks")[0].style.display = "none";
-  document.getElementById("first-popup-wrapper").getElementsByClassName("first-popup")[0].style.display = "block";
+  document
+    .getElementById("first-popup-wrapper")
+    .getElementsByClassName("thanks")[0].style.display = "none";
+  document
+    .getElementById("first-popup-wrapper")
+    .getElementsByClassName("first-popup")[0].style.display = "block";
   document.body.className = "";
 }
 
 function addUXList() {
   setTimeout(function() {
-    document.getElementById("first-popup-wrapper").getElementsByClassName("thanks")[0].style.display = "block";
-    document.getElementById("first-popup-wrapper").getElementsByClassName("first-popup")[0].style.display = "none";
+    document
+      .getElementById("first-popup-wrapper")
+      .getElementsByClassName("thanks")[0].style.display = "block";
+    document
+      .getElementById("first-popup-wrapper")
+      .getElementsByClassName("first-popup")[0].style.display = "none";
   }, 500);
 }
 
@@ -61,21 +73,31 @@ function addWaitingList() {
     email: document.getElementsByClassName("send-link-input1")[0].value,
     source: "homepage",
   };
-  let xmlhttp = new XMLHttpRequest(); // new HttpRequest instance
+  const xmlhttp = new XMLHttpRequest(); // new HttpRequest instance
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState === 4) {
-      let res = JSON.parse(xmlhttp.response);
-      document.getElementById("signup_confirmation").getElementsByClassName("error")[0].style.display = "none";
-      document.getElementById("signup_confirmation").getElementsByClassName("success")[0].style.display = "none";
+      const res = JSON.parse(xmlhttp.response);
+      document
+        .getElementById("signup_confirmation")
+        .getElementsByClassName("error")[0].style.display = "none";
+      document
+        .getElementById("signup_confirmation")
+        .getElementsByClassName("success")[0].style.display = "none";
       if (res.error) {
         document.getElementById("signup_confirmation").className = "active";
-        document.getElementById("signup_confirmation").getElementsByClassName("error")[0].style.display = "block";
-        document.getElementById("signup_confirmation").getElementsByClassName("error")[0].innerHTML = res.messages[0];
+        document
+          .getElementById("signup_confirmation")
+          .getElementsByClassName("error")[0].style.display = "block";
+        document
+          .getElementById("signup_confirmation")
+          .getElementsByClassName("error")[0].innerHTML = res.messages[0];
         document.body.className = "fixed";
       } else {
         // alert("Email successfully registered");
         document.getElementById("signup_confirmation").className = "active";
-        document.getElementById("signup_confirmation").getElementsByClassName("success")[0].style.display = "block";
+        document
+          .getElementById("signup_confirmation")
+          .getElementsByClassName("success")[0].style.display = "block";
         document.body.className = "fixed";
       }
     }
@@ -101,55 +123,62 @@ document.body.getElementsByClassName("content-wrapper")[0].addEventListener(
       }
     }
 
-    if (window.location.pathname === "/signup2" || window.location.pathname === "/skift-til-barry2" && document.getElementsByClassName("zEWidget-launcher").length > 0) {
-      document.getElementsByClassName("zEWidget-launcher")[0].style = "display: none";
+    if (
+      window.location.pathname === "/signup2" ||
+      (window.location.pathname === "/skift-til-barry2" &&
+        document.getElementsByClassName("zEWidget-launcher").length > 0)
+    ) {
+      document.getElementsByClassName("zEWidget-launcher")[0].style =
+        "display: none";
     }
-    
-    if (window.location.pathname === "/signup2" && window.location.search === "?step=2") {
-      if (document.getElementById("5ixrcodf")){
+
+    if (
+      window.location.pathname === "/signup2" &&
+      window.location.search === "?step=2"
+    ) {
+      if (document.getElementById("5ixrcodf")) {
         document.getElementById("5ixrcodf").style.display = "none";
       }
-      if (document.getElementById("pxzirt4l")){
+      if (document.getElementById("pxzirt4l")) {
         document.getElementById("pxzirt4l").style.display = "block";
       }
       setTimeout(function() {
-        var elem = document.getElementById("pxzirt4l");
+        const elem = document.getElementById("pxzirt4l");
         if (elem) {
           elem.scrollIntoView();
         }
       }, 1500);
-    } else {
-      if (window.location.pathname === "/signup2") {
-        if (document.getElementById("5ixrcodf")){
-          document.getElementById("5ixrcodf").style.display = "block";
-        }
-        if (document.getElementById("pxzirt4l")){
-          document.getElementById("pxzirt4l").style.display = "none";
-        }
+    } else if (window.location.pathname === "/signup2") {
+      if (document.getElementById("5ixrcodf")) {
+        document.getElementById("5ixrcodf").style.display = "block";
+      }
+      if (document.getElementById("pxzirt4l")) {
+        document.getElementById("pxzirt4l").style.display = "none";
       }
     }
 
-    if (window.location.pathname === "/signup4" && window.location.search === "?step=2") {
-      if (document.getElementById("5ixrcodf")){
+    if (
+      window.location.pathname === "/signup4" &&
+      window.location.search === "?step=2"
+    ) {
+      if (document.getElementById("5ixrcodf")) {
         document.getElementById("5ixrcodf").style.display = "none";
       }
-      if (document.getElementById("pxzirt4l")){
+      if (document.getElementById("pxzirt4l")) {
         document.getElementById("pxzirt4l").style.display = "block";
       }
       setTimeout(function() {
-        var elem = document.getElementById("pxzirt4l");
+        const elem = document.getElementById("pxzirt4l");
         if (elem) {
           elem.scrollIntoView();
         }
       }, 1500);
-    } else {
-      if (window.location.pathname === "/signup4") {
-        if (document.getElementById("5ixrcodf")){
-          document.getElementById("5ixrcodf").style.display = "block";
-        }
-        if (document.getElementById("pxzirt4l")){
-          document.getElementById("pxzirt4l").style.display = "none";
-        }
+    } else if (window.location.pathname === "/signup4") {
+      if (document.getElementById("5ixrcodf")) {
+        document.getElementById("5ixrcodf").style.display = "block";
+      }
+      if (document.getElementById("pxzirt4l")) {
+        document.getElementById("pxzirt4l").style.display = "none";
       }
     }
   },
@@ -206,8 +235,12 @@ setTimeout(function() {
     popupClose = document.getElementById("first-popup-close1");
     popupClose.onclick = function() {
       document.getElementById("first-popup-wrapper").style.display = "none";
-      document.getElementById("first-popup-wrapper").getElementsByClassName("thanks")[0].style.display = "none";
-      document.getElementById("first-popup-wrapper").getElementsByClassName("first-popup")[0].style.display = "block";
+      document
+        .getElementById("first-popup-wrapper")
+        .getElementsByClassName("thanks")[0].style.display = "none";
+      document
+        .getElementById("first-popup-wrapper")
+        .getElementsByClassName("first-popup")[0].style.display = "block";
       document.body.className = "";
     };
   }
@@ -219,12 +252,17 @@ setTimeout(function() {
     };
   }
 
-  if (document.getElementById("roadmap-content") && document.getElementsByClassName("navbar-fixed").length > 0) {
-    document.getElementsByClassName("navbar-fixed")[0].classList.add('header-fixed');
-  } else {
-    if (document.getElementsByClassName("navbar-fixed").length > 0){
-      document.getElementsByClassName("navbar-fixed")[0].classList.remove('header-fixed');
-    }
+  if (
+    document.getElementById("roadmap-content") &&
+    document.getElementsByClassName("navbar-fixed").length > 0
+  ) {
+    document
+      .getElementsByClassName("navbar-fixed")[0]
+      .classList.add("header-fixed");
+  } else if (document.getElementsByClassName("navbar-fixed").length > 0) {
+    document
+      .getElementsByClassName("navbar-fixed")[0]
+      .classList.remove("header-fixed");
   }
 
   if (document.getElementById("view-all-0")) {
@@ -251,18 +289,21 @@ setTimeout(function() {
 
   if (document.getElementById("roadmap-header-fixed")) {
     document.body.onscroll = function() {
-      var rect = document.getElementById("sticky-point").getBoundingClientRect();
+      const rect = document
+        .getElementById("sticky-point")
+        .getBoundingClientRect();
       console.log(document.documentElement.scrollTop, rect.bottom);
       if (rect.top < 75) {
-        document.getElementById("roadmap-header-fixed").classList.add('show');
+        document.getElementById("roadmap-header-fixed").classList.add("show");
       } else {
-        document.getElementById("roadmap-header-fixed").classList.remove('show');
+        document
+          .getElementById("roadmap-header-fixed")
+          .classList.remove("show");
       }
-    }
+    };
   }
 }, 5000);
 
-var script = document.createElement('script'); script.src = "https://paperform.co/__embed"; document.body.appendChild(script);
-
-
-
+const script = document.createElement("script");
+script.src = "https://paperform.co/__embed";
+document.body.appendChild(script);

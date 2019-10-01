@@ -2641,6 +2641,8 @@ _:-ms-fullscreen,
 .cookie-button {
   margin: 0;
   height: 50px;
+  background: #FD5092;
+  border-color: #FD5092;
 }
 
 .cookie-box-title {
@@ -2656,6 +2658,9 @@ _:-ms-fullscreen,
 
 .cookie-box-content {
   font-size: 14px;
+  a {
+    color: #FD5092;
+  }
 }
 
 img.cookie-img {

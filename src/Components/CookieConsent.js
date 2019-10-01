@@ -17,7 +17,6 @@ function CookieConsent() {
   }
 
   const cookieConsentLinkUrl = Scrivito.urlFor(cookieConsentLink);
-  const cookieLinkTitle = cookieConsentLink.title() || "Learn more »";
 
   return (
     <ReactCookieConsent
@@ -27,22 +26,18 @@ function CookieConsent() {
       contentClasses="cookie-content d-flex align-items-center"
       buttonClasses="cookie-button btn btn-primary ml-auto"
     >
-      <div className="cookie-img-box">
-        <img className="cookie-img" src={cookieConsentIcon} alt="cookie-img"/>
-      </div>
       <div>
-        <div className="cookie-box-title">Cookies policy</div>
         <div className="cookie-box-content">
-          Our website uses cookies to analyze how the site is used and to ensure
-          your experience is consistent between visits.
-          <a
+          Barry og vores samarbejdspartnere bruger cookies til at måle trafik, markedsføre vores produkter og for at kunne optimere siden. <br/>
+          Hvis du klikker videre på siden, accepterer du vores brug af cookies.<br/>
+          Læs mere <a
             className="cookie-box-link"
             href={cookieConsentLinkUrl}
             rel="noopener noreferrer"
             target="_blank"
           >
-            {cookieLinkTitle}
-          </a>
+            her
+          </a> om vores brug af cookies, herunder hvordan du fravælger cookies igen.
         </div>
       </div>
     </ReactCookieConsent>
