@@ -8,8 +8,30 @@ class FooterWidget extends React.Component {
     super(props);
 
     this.state = {
-      termChecked: false
+      termChecked: false,
+      email: ''
     }
+  }
+
+  subscribe() {
+    const params = {
+      email: this.state.email,
+      source: "homepage",
+    };
+    console.log('params', params);
+    const xmlhttp = new XMLHttpRequest(); // new HttpRequest instance
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState === 4) {
+        const res = JSON.parse(xmlhttp.response);
+        console.log('res', res);
+      }
+    };
+    xmlhttp.open(
+      "POST",
+      "https://wpk2il4zj0.execute-api.eu-central-1.amazonaws.com/dev/user/add"
+    );
+    xmlhttp.setRequestHeader("Content-Type", "application/json");
+    xmlhttp.send(JSON.stringify(params));
   }
 
   handleTermChange(flag) {
@@ -72,11 +94,12 @@ class FooterWidget extends React.Component {
               </span>
               <Switch onChange={() => this.handleTermChange(this.state.termChecked)} checked={this.state.termChecked} onColor="#EF7B40" offColor="#6C738A" uncheckedIcon={false} checkedIcon={false}/>
             </p>
-            {/* <form action="//mc.us12.list-manage.com/signup-form/subscribe?u=16983c4b3e082d6ab115e41da&id=003e99e1f0" accept-charset="UTF-8" method="post" enctype="multipart/form-data" data-dojo-attach-point="formNode" novalidate=""> */}
-            <form>
-              <input type="text" placeholder="Din email" className="email" name="EMAIL"/>
-              <button type="submit" disabled={!this.state.termChecked}>Subscribe</button>  
-            </form>
+            <div className="form">
+              <input type="text" placeholder="Din email" className="email" name="EMAIL" value={this.state.email} onChange={(event) => {this.setState({email: event.target.value})}}/>
+              <button type="submit" disabled={!this.state.termChecked} onClick={() => {
+                this.subscribe()
+              }}>Tilmeld mig</button>  
+            </div>
 
             { document.body.clientWidth < 700 && <div className="copy-block">
               <p>
