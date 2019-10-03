@@ -2,6 +2,9 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import Switch from "react-switch";
+import trustpilot from "../../assets/images/trustpilot.svg";
+import greenStar from "../../assets/images/green_star.svg";
+import grayStar from "../../assets/images/gray_star.svg";
 
 class FooterWidget extends React.Component {
   constructor(props) {
@@ -18,7 +21,6 @@ class FooterWidget extends React.Component {
       email: this.state.email,
       source: "homepage",
     };
-    console.log('params', params);
     const xmlhttp = new XMLHttpRequest(); // new HttpRequest instance
     xmlhttp.onreadystatechange = function() {
       if (xmlhttp.readyState === 4) {
@@ -42,6 +44,22 @@ class FooterWidget extends React.Component {
   render() {
     return (
       <div className="footer-widget">
+        <div className="trust-wrapper">
+          <div>
+            <img src={trustpilot} />
+            <p style={{marginTop: '9px'}}>Se vores anmeldelser <a href="https://dk.trustpilot.com/review/www.getbarry.dk">her</a></p>
+          </div>
+          <div>
+            <p>God</p>
+            <a href="https://dk.trustpilot.com/review/www.getbarry.dk">
+              <img src={greenStar} />
+              <img src={greenStar} />
+              <img src={greenStar} />
+              <img src={greenStar} />
+              <img src={grayStar} />
+            </a>
+          </div>
+        </div>
         <div className="first-wrapper">
           <div className="footer-block">
             <img src="https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/ac44668630875dc0/d710a3a5d20e/Grey-logo-.svg" alt="barry-logo"/>

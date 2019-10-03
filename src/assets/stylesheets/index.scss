@@ -4423,3 +4423,37 @@ h2.h4 {
     }
   }
 }
+
+.chatbot {
+  display: none;
+  position: fixed;
+  width: 90%;
+  max-width: 800px;
+  height: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  button {
+    position: absolute;
+    z-index: 55;
+    background: transparent;
+    border: none;
+    right: 2px;
+    top: 8px;
+    cursor: pointer;
+  }
+  iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 600px;
+    border: none;
+  }
+
+  @media (max-width: 700px) {
+    height: 400px;
+    iframe {
+      height: 400px;
+    }
+  }
+}

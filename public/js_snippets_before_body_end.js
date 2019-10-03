@@ -68,6 +68,14 @@ function zEWidgetOpen(tag) {
   window.$zopim.livechat.addTags(tag);
 }
 
+function showchatbot(ind) {
+  document.getElementById("chatbot" + ind).style.display = "block";
+}
+
+function closeChatbot(ind) {
+  document.getElementById("chatbot" + ind).style.display = "none";
+}
+
 function addWaitingList() {
   const params = {
     email: document.getElementsByClassName("send-link-input1")[0].value,
@@ -132,30 +140,30 @@ document.body.getElementsByClassName("content-wrapper")[0].addEventListener(
         "display: none";
     }
 
-    if (
-      window.location.pathname === "/signup2" &&
-      window.location.search === "?step=2"
-    ) {
-      if (document.getElementById("5ixrcodf")) {
-        document.getElementById("5ixrcodf").style.display = "none";
-      }
-      if (document.getElementById("pxzirt4l")) {
-        document.getElementById("pxzirt4l").style.display = "block";
-      }
-      setTimeout(function() {
-        const elem = document.getElementById("pxzirt4l");
-        if (elem) {
-          elem.scrollIntoView();
-        }
-      }, 1500);
-    } else if (window.location.pathname === "/signup2") {
-      if (document.getElementById("5ixrcodf")) {
-        document.getElementById("5ixrcodf").style.display = "block";
-      }
-      if (document.getElementById("pxzirt4l")) {
-        document.getElementById("pxzirt4l").style.display = "none";
-      }
-    }
+    // if (
+    //   window.location.pathname === "/signup2" &&
+    //   window.location.search === "?step=2"
+    // ) {
+    //   if (document.getElementById("5ixrcodf")) {
+    //     document.getElementById("5ixrcodf").style.display = "none";
+    //   }
+    //   if (document.getElementById("pxzirt4l")) {
+    //     document.getElementById("pxzirt4l").style.display = "block";
+    //   }
+    //   setTimeout(function() {
+    //     const elem = document.getElementById("pxzirt4l");
+    //     if (elem) {
+    //       elem.scrollIntoView();
+    //     }
+    //   }, 1500);
+    // } else if (window.location.pathname === "/signup2") {
+    //   if (document.getElementById("5ixrcodf")) {
+    //     document.getElementById("5ixrcodf").style.display = "block";
+    //   }
+    //   if (document.getElementById("pxzirt4l")) {
+    //     document.getElementById("pxzirt4l").style.display = "none";
+    //   }
+    // }
 
     if (
       window.location.pathname === "/signup4" &&
