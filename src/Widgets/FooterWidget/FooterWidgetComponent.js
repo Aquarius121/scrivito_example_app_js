@@ -104,7 +104,7 @@ class FooterWidget extends React.Component {
           { document.body.clientWidth < 700 && <div className="line-break" />}
 
           <div className="footer-block">
-            <label>Mere om Barry</label>
+            <label>Vær med på rejsen!</label>
             <p>Vi forbedrer hele tiden Barry. Tilmelder du dig vores nyhedsbrev, kan du følge med i udviklingen og modtage information via e-mail om, hvordan app'en kan gøre dit strømforbrug smartere.</p>
             <p className="terms">
               <span>
