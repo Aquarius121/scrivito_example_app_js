@@ -4437,10 +4437,15 @@ h2.h4 {
   button {
     position: absolute;
     z-index: 55;
-    background: transparent;
+    background: #f5f7fb;
     border: none;
     right: 2px;
-    top: 8px;
+    top: 5px;
+    cursor: pointer;
+    height: 25px;
+    padding-top: 3px;
+    width: 50px;
+    text-align: right;
     cursor: pointer;
   }
   iframe {

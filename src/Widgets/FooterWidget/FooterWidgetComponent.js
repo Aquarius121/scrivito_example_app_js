@@ -47,11 +47,11 @@ class FooterWidget extends React.Component {
         <div className="trust-wrapper">
           <div>
             <img src={trustpilot} />
-            <p style={{marginTop: '9px'}}>Se vores anmeldelser <a href="https://dk.trustpilot.com/review/www.getbarry.dk">her</a></p>
+            <p style={{marginTop: '9px'}}>Se vores anmeldelser <a href="https://dk.trustpilot.com/review/www.getbarry.dk" target="_blank">her</a></p>
           </div>
           <div>
             <p>God</p>
-            <a href="https://dk.trustpilot.com/review/www.getbarry.dk">
+            <a href="https://dk.trustpilot.com/review/www.getbarry.dk" target="_blank">
               <img src={greenStar} />
               <img src={greenStar} />
               <img src={greenStar} />
@@ -67,7 +67,7 @@ class FooterWidget extends React.Component {
 
             <div className="social-links">
               <a href="https://www.facebook.com/getbarry"><i className="fa fa-facebook-f"></i></a>
-              <a href="https://twitter.com/hashtag/getbarry"><i className="fa fa-twitter"></i></a>
+              <a href="https://www.instagram.com/getbarry/?hl=en"><i className="fa fa-instagram"></i></a>
               <a href="https://www.linkedin.com/company/28608159/admin/"><i className="fa fa-linkedin"></i></a>
               <a href="https://www.youtube.com/channel/UCXOqi4jMACgwvqli8GG8wyg"><i className="fa fa-youtube"></i></a>
             </div>

@@ -1,19 +1,19 @@
 // This file is for executing JavaScript code immediately before the body element is closed.
-// Here you can, for example, let third-party code render additional markup.
+// Here you can, for example, var third-party code render additional markup.
 function setCookie(name, value, days) {
-  let expires = "";
+  var expires = "";
   if (days) {
-    const date = new Date();
+    var date = new Date();
     date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
     expires = `; expires=${date.toUTCString()}`;
   }
   document.cookie = `${name}=${value || ""}${expires}; path=/`;
 }
 function getCookie(name) {
-  const nameEQ = `${name}=`;
-  const ca = document.cookie.split(";");
-  for (let i = 0; i < ca.length; i++) {
-    let c = ca[i];
+  var nameEQ = `${name}=`;
+  var ca = document.cookie.split(";");
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
     while (c.charAt(0) === " ") {
       c = c.substring(1, c.length);
     }
@@ -26,7 +26,7 @@ function getCookie(name) {
 function eraseCookie(name) {
   document.cookie = `${name}=; Max-Age=-99999999;`;
 }
-const ckie = getCookie("scrivitobarryform");
+var ckie = getCookie("scrivitobarryform");
 
 function showTerms() {
   document.getElementById("terms-condition").className = "active";
@@ -77,14 +77,14 @@ function closeChatbot(ind) {
 }
 
 function addWaitingList() {
-  const params = {
+  var params = {
     email: document.getElementsByClassName("send-link-input1")[0].value,
     source: "homepage",
   };
-  const xmlhttp = new XMLHttpRequest(); // new HttpRequest instance
+  var xmlhttp = new XMLHttpRequest(); // new HttpRequest instance
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState === 4) {
-      const res = JSON.parse(xmlhttp.response);
+      var res = JSON.parse(xmlhttp.response);
       document
         .getElementById("signup_confirmation")
         .getElementsByClassName("error")[0].style.display = "none";
@@ -140,6 +140,14 @@ document.body.getElementsByClassName("content-wrapper")[0].addEventListener(
         "display: none";
     }
 
+    if (
+      window.location.pathname === "/app-vilkaar-og-betingelser" ||
+      (window.location.pathname === "/leveringsbetingelser-privat" &&
+        document.getElementsByClassName("cookieConsent").length > 0)
+    ) {
+      document.getElementsByClassName("cookieConsent")[0].style="display:none !important"
+    }
+    
     // if (
     //   window.location.pathname === "/signup2" &&
     //   window.location.search === "?step=2"
@@ -151,7 +159,7 @@ document.body.getElementsByClassName("content-wrapper")[0].addEventListener(
     //     document.getElementById("pxzirt4l").style.display = "block";
     //   }
     //   setTimeout(function() {
-    //     const elem = document.getElementById("pxzirt4l");
+    //     var elem = document.getElementById("pxzirt4l");
     //     if (elem) {
     //       elem.scrollIntoView();
     //     }
@@ -176,7 +184,7 @@ document.body.getElementsByClassName("content-wrapper")[0].addEventListener(
         document.getElementById("pxzirt4l").style.display = "block";
       }
       setTimeout(function() {
-        const elem = document.getElementById("pxzirt4l");
+        var elem = document.getElementById("pxzirt4l");
         if (elem) {
           elem.scrollIntoView();
         }
@@ -297,7 +305,7 @@ setTimeout(function() {
 
   if (document.getElementById("roadmap-header-fixed")) {
     document.body.onscroll = function() {
-      const rect = document
+      var rect = document
         .getElementById("sticky-point")
         .getBoundingClientRect();
       console.log(document.documentElement.scrollTop, rect.bottom);
@@ -312,6 +320,6 @@ setTimeout(function() {
   }
 }, 5000);
 
-const script = document.createElement("script");
+var script = document.createElement("script");
 script.src = "https://paperform.co/__embed";
 document.body.appendChild(script);
