@@ -3451,6 +3451,18 @@ h3 {
     transform: translateX(-50%);
     text-transform: uppercase;
   }
+
+  &.dark {
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.06);
+    h5 {
+      color: white;
+      font-size: 18px;
+    }
+    p {
+      opacity: 0.6;
+    }
+  }
 }
 
 .badge-round-rect {

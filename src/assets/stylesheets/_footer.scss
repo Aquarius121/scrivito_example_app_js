@@ -225,4 +225,26 @@
       display: none;
     }
   }
+
+  &.type2 {
+    .first-wrapper {
+      .footer-block {
+        border-right: none;
+        padding: 0;
+        width: auto;
+      }
+      .footer-block:last-child {
+        display: none;
+      }
+    }
+    .second-wrapper {
+      justify-content: flex-end;
+      .store-block {
+        display: none;
+      }
+      .copy-block {
+        padding-right: 0px;
+      }
+    }
+  }
 }

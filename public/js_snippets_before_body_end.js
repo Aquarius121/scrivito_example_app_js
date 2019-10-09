@@ -131,21 +131,23 @@ document.body.getElementsByClassName("content-wrapper")[0].addEventListener(
       }
     }
 
-    if (
-      window.location.pathname === "/signup2" ||
-      (window.location.pathname === "/skift-til-barry2" &&
+    if (( window.location.pathname === "/signup2" || window.location.pathname === "/skift-til-barry2") &&
         document.getElementsByClassName("zEWidget-launcher").length > 0)
-    ) {
+     {
       document.getElementsByClassName("zEWidget-launcher")[0].style =
         "display: none";
     }
 
-    if (
-      window.location.pathname === "/app-vilkaar-og-betingelser" ||
-      (window.location.pathname === "/leveringsbetingelser-privat" &&
+    if ((
+      window.location.pathname === "/app-vilkaar-og-betingelser" || window.location.pathname === "/leveringsbetingelser-privat") &&
         document.getElementsByClassName("cookieConsent").length > 0)
-    ) {
+    {
       document.getElementsByClassName("cookieConsent")[0].style="display:none !important"
+    }
+
+    if (window.location.pathname === "/skift-til-barry5" && document.getElementsByClassName("footer-widget").length > 0)
+    {
+      document.getElementsByClassName("footer-widget")[0].className = "footer-widget type2";
     }
     
     // if (
