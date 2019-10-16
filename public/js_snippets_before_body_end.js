@@ -69,11 +69,16 @@ function zEWidgetOpen(tag) {
 }
 
 function showchatbot(ind) {
-  document.getElementById("chatbot" + ind).style.display = "block";
+  var frame = document.getElementById("chatbot").childNodes[3];
+  path = ind == 1 ? 'https://me.botxo.co/webchat/81f74b1f-f58a-422a-8582-6b9ff2f39af5/?ref=181649&botxo-unbranded' : 'https://me.botxo.co/webchat/81f74b1f-f58a-422a-8582-6b9ff2f39af5/?ref=181648&botxo-unbranded';
+  frame.contentWindow.location.replace(path);
+  document.getElementById("chatbot").style.display = "block";
 }
 
 function closeChatbot(ind) {
-  document.getElementById("chatbot" + ind).style.display = "none";
+  document.getElementById("chatbot").style.display = "none";
+  var frame = document.getElementById("chatbot").childNodes[3];
+  frame.contentWindow.location.replace("");
 }
 
 function addWaitingList() {
@@ -145,9 +150,18 @@ document.body.getElementsByClassName("content-wrapper")[0].addEventListener(
       document.getElementsByClassName("cookieConsent")[0].style="display:none !important"
     }
 
-    if (window.location.pathname === "/skift-til-barry5" && document.getElementsByClassName("footer-widget").length > 0)
+    if ((window.location.pathname === "/skift-til-barry5" || window.location.pathname === "/Pristjek3" || window.location.pathname === "/Pristjek-done3") && document.getElementsByClassName("footer-widget").length > 0)
     {
       document.getElementsByClassName("footer-widget")[0].className = "footer-widget type2";
+    }
+
+    if (window.location.pathname === "/france")
+    {
+      document.body.className = "french";
+    }
+
+    if (window.location.pathname === "/skift-til-barry-nu" && document.getElementsByClassName("bg-dark-image").length > 0) {
+      document.getElementsByClassName("bg-dark-image")[0].style="background: #FFF";
     }
     
     // if (

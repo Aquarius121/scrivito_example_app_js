@@ -351,7 +351,7 @@ class PriceCalculatorWidget extends React.Component {
         )}
         {this.state.showBox === 2 && (
           <div className="main-box box2">
-            <h2>Så meget havde du betalt med Barry</h2>
+            <h2>{window.location.pathname === '/Pristjek-done3' ? 'Se her hvad strøm havde kostet dig hos Barry' : 'Så meget havde du betalt med Barry'}</h2>
             <div className="box2-content">
               <div className="box2-heading">
                 <div>
@@ -559,7 +559,7 @@ class PriceCalculatorWidget extends React.Component {
               Skift til Barry online
             </a>} */}
             {window.location.pathname != "/Pristjek-done2" && <a className="link" href={window.location.pathname == "/Pristjek-done3" ? "/signup2" : "/signup2"} target="_blank" style={{ marginTop: 15, marginBottom: 15 }}>
-              Skift til Barry online
+              {window.location.pathname === '/Pristjek-done3' ? 'Skift til Barry - det tager kun 2 minutter' : 'Skift til Barry online'}
             </a>}
             <a href={window.location.pathname == "/Pristjek-done3" ? "/skift-til-barry2" : "/"} target={window.location.pathname == "/Pristjek-done3" ? "_blank" : "_self"} style={{color: 'black'}}>Tilbage til getbarry.co</a>
           </div>

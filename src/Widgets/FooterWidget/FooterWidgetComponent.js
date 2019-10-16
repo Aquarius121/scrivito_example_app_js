@@ -25,7 +25,16 @@ class FooterWidget extends React.Component {
     xmlhttp.onreadystatechange = function() {
       if (xmlhttp.readyState === 4) {
         const res = JSON.parse(xmlhttp.response);
-        console.log('res', res);
+        if (!res.error) {
+          var xmlhttp1 = new XMLHttpRequest();
+          xmlhttp1.open(
+            "POST",
+            "https://hooks.zapier.com/hooks/catch/3840762/ou3k3l8/"
+          );
+          xmlhttp1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+          xmlhttp1.send(JSON.stringify(params));
+          console.log('sent');
+        }
       }
     };
     xmlhttp.open(
@@ -39,9 +48,115 @@ class FooterWidget extends React.Component {
   handleTermChange(flag) {
     this.setState({ termChecked: !flag });
   }
+  
   // eslint-disable-next-line class-methods-use-this
   // eslint-disable-next-line lines-between-class-members
   render() {
+    let french = false;
+    let espana = false;
+    if (typeof window !== 'undefined' && window.location.pathname === '/france') {
+      french = true;
+    }
+    if (typeof window !== 'undefined' && window.location.pathname === '/espana') {
+      espana = true;
+    }
+
+    if (french) {
+      return (
+        <div className="footer-widget french-footer">
+          <div className="first-wrapper">
+            <div className="footer-block">
+              <div className="footer-logo-wrapper">
+                <img src="https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/ac44668630875dc0/d710a3a5d20e/Grey-logo-.svg" alt="barry-logo"/>
+              </div>
+              <p>
+                <span>©Barry Danmark ApS</span>
+                <span>CVR 38 99 80 99</span>
+                <a href="/terms-of-service">Terms of service</a>
+                <a href="/privacy-policy">Privacy Policy</a>
+              </p>
+            </div>
+  
+            { document.body.clientWidth < 700 && <div className="line-break" />}
+  
+            <div className="footer-block big">
+              <label>MAIS QUI EST CE BARRY ?</label>
+  
+              <p>
+                Chez Barry, nous voulons rendre l’électricité très simple et équitable – pour vous comme pour notre planète. Qui a dit que l’électricité, c'est forcément compliqué et barbant ? <br/><br/><br/>
+
+                Barry, qui a déjà lancé au Danemark, est le plus jeune membre de la famille Fortum. Fortum est un géant de l’énergie, coté en   Finlande, avec des activités en Europe du Nord et dans les pays baltes. Pour en savoir plus sur le groupe Fortum, clique <a href="https://www.fortum.fr/accueil/le-groupe-fortum/propos-de-fortum">ici</a>.
+              </p>
+            </div>
+  
+            { document.body.clientWidth < 700 && <div className="line-break" />}
+  
+            <div className="footer-block">
+              <label>DES QUESTIONS ?</label>
+              <p>Envoie-nous un mot doux à l'adresse suivante: hey@getbarry.co.</p>
+              <br/>
+              <label>JOIN THE BARRY-MOVEMENT🙌</label>
+              <p>
+                <a href="https://www.facebook.com/getbarry" target="_blank"><i className="fa fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/getbarry/?hl=en" target="_blank"><i className="fa fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/28608159/admin/" target="_blank"><i className="fa fa-linkedin"></i></a>
+              </p>
+              
+            </div>
+  
+          </div>
+        </div>
+      )
+    }
+
+    if (espana) {
+      return (
+        <div className="footer-widget espana-footer">
+          <div className="first-wrapper">
+            <div className="footer-block">
+              <div className="footer-logo-wrapper">
+                <img src="https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/ac44668630875dc0/d710a3a5d20e/Grey-logo-.svg" alt="barry-logo"/>
+              </div>
+              <p>
+                <span>©Barry Danmark ApS</span>
+                <span>CVR 38 99 80 99</span>
+                <a href="/terms-of-service">Terms of service</a>
+                <a href="/privacy-policy">Privacy Policy</a>
+              </p>
+            </div>
+  
+            { document.body.clientWidth < 700 && <div className="line-break" />}
+  
+            <div className="footer-block big">
+              <label>¿QUIÉN ES BARRY?</label>
+  
+              <p>
+                ¿Quién dijo que la electricidad tenía que ser complicada y aburrida? 
+                En Barry, queremos que la electricidad sea superfácil y superjusta; para ti y para el planeta.
+                Barry fue lanzado en Dinamarca. Barry es el miembro más joven de la familia Fortum. Fortum es una compañía finlandesa dedicada a la energía que cotiza en bolsa y posee operaciones en la región escandinava, los países bálticos y Polonia. Puedes leer más sobre el grupo Fortum aquí.
+
+              </p>
+            </div>
+  
+            { document.body.clientWidth < 700 && <div className="line-break" />}
+  
+            <div className="footer-block">
+              <label>¿ALGUNA PREGUNTA?</label>
+              <p>Escríbenos a hey@getbarry.co</p>
+              <br/>
+              <label>JOIN THE BARRY-MOVEMENT🙌</label>
+              <p>
+                <a href="https://www.facebook.com/getbarry" target="_blank"><i className="fa fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/getbarry/?hl=en" target="_blank"><i className="fa fa-instagram"></i></a>
+              </p>
+              
+            </div>
+  
+          </div>
+        </div>
+      )
+    }
+
     return (
       <div className="footer-widget">
         <div className="trust-wrapper">
@@ -66,10 +181,10 @@ class FooterWidget extends React.Component {
             <p><a className="orange-text" href="https://helpcenter.getbarry.co/hc/da/requests/new" target="_blank">Chat</a> eller <a  className="orange-text" href="mailto:hello@getbarry.co?Subject=Contact">mail</a> os alle<br/>dage fra 09:00 til 21:00</p>
 
             <div className="social-links">
-              <a href="https://www.facebook.com/getbarry"><i className="fa fa-facebook-f"></i></a>
-              <a href="https://www.instagram.com/getbarry/?hl=en"><i className="fa fa-instagram"></i></a>
-              <a href="https://www.linkedin.com/company/28608159/admin/"><i className="fa fa-linkedin"></i></a>
-              <a href="https://www.youtube.com/channel/UCXOqi4jMACgwvqli8GG8wyg"><i className="fa fa-youtube"></i></a>
+              <a href="https://www.facebook.com/getbarry" target="_blank"><i className="fa fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/getbarry/?hl=en" target="_blank"><i className="fa fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/company/28608159/admin/" target="_blank"><i className="fa fa-linkedin"></i></a>
+              <a href="https://www.youtube.com/channel/UCXOqi4jMACgwvqli8GG8wyg" target="_blank"><i className="fa fa-youtube"></i></a>
             </div>
 
             <div className="co-block">
@@ -104,7 +219,7 @@ class FooterWidget extends React.Component {
           { document.body.clientWidth < 700 && <div className="line-break" />}
 
           <div className="footer-block">
-            <label>Vær med på rejsen!</label>
+            <label>Nysgerrig?</label>
             <p>Vi forbedrer hele tiden Barry. Tilmelder du dig vores nyhedsbrev, kan du følge med i udviklingen og modtage information via e-mail om, hvordan app'en kan gøre dit strømforbrug smartere.</p>
             <p className="terms">
               <span>
