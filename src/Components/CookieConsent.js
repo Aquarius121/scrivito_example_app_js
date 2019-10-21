@@ -20,7 +20,7 @@ function CookieConsent() {
 
   return (
     <ReactCookieConsent
-      buttonText="accept"
+      buttonText="accepter"
       disableStyles
       containerClasses="cookie-box d-lg-flex d-sm-flex align-items-center"
       contentClasses="cookie-content d-flex align-items-center"
@@ -28,16 +28,15 @@ function CookieConsent() {
     >
       <div>
         <div className="cookie-box-content">
-          Barry og vores samarbejdspartnere bruger cookies til at måle trafik, markedsføre vores produkter og for at kunne optimere siden. <br/>
-          Hvis du klikker videre på siden, accepterer du vores brug af cookies.<br/>
-          Læs mere <a
+          <span>Ja, vi bruger selvfølgelig også Cookies.</span>
+          <a
             className="cookie-box-link"
             href={cookieConsentLinkUrl}
             rel="noopener noreferrer"
             target="_blank"
           >
-            her
-          </a> om vores brug af cookies, herunder hvordan du fravælger cookies igen.
+            Læs mere
+          </a>
         </div>
       </div>
     </ReactCookieConsent>

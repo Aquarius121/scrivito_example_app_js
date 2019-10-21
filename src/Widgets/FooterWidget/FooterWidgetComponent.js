@@ -111,7 +111,7 @@ class FooterWidget extends React.Component {
 
     if (espana) {
       return (
-        <div className="footer-widget espana-footer">
+        <div className="footer-widget french-footer">
           <div className="first-wrapper">
             <div className="footer-block">
               <div className="footer-logo-wrapper">

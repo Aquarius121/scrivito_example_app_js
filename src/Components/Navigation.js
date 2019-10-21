@@ -174,7 +174,12 @@ class Navigation extends React.Component {
           />
           <NavigationSection heightClassName={heightClassName} />
           {/* <ScrollToNextSectionLink heightClassName={heightClassName} /> */}
-          {/* <div>test</div> */}
+          {(window.location.pathname === '/' || window.location.pathname === '/skift-til-barry') && <div className="sticky-bar">
+            <div className="sticky-bar-content">
+              <p>Vidste du det? Du kan nemt skifte til barry online og vente med at hente app'en senere.</p>
+              <a href="/signup2">Skift nu</a>
+            </div>
+          </div>}
         </Scrivito.BackgroundImageTag>
         <ScrollElement name="nextSection" />
       </React.Fragment>

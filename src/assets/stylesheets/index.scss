@@ -2628,7 +2628,7 @@ _:-ms-fullscreen,
 
 .cookie-box {
   width: 100%;
-  background: rgba(61, 65, 66, 0.85);
+  background: #2C2F36;
   z-index: 1000000;
   padding: 25px 17% 25px 17%;
 }
@@ -2636,13 +2636,18 @@ _:-ms-fullscreen,
 .cookie-content {
   color: $theme-greywhite;
   margin-right: 20px;
+  width: 100%;
+  div {
+    width: 100%;
+  }
 }
 
 .cookie-button {
   margin: 0;
-  height: 50px;
+  height: 40px;
   background: #FD5092;
   border-color: #FD5092;
+  padding: 8px 20px;
 }
 
 .cookie-box-title {
@@ -2658,6 +2663,8 @@ _:-ms-fullscreen,
 
 .cookie-box-content {
   font-size: 14px;
+  display: flex;
+  justify-content: space-between;
   a {
     color: #FD5092;
   }
@@ -4492,4 +4499,50 @@ img.top-pink-logo {
   @media (max-width: 1300px) {
     margin: 0;
   }
+}
+
+.sticky-bar {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  left: 0px;
+  height: 88px;
+  color: white;
+  background: #2C2F36;
+  z-index: 555;
+  padding: 22px;
+
+  &-content {
+    max-width: 1110px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+  }
+  p {
+    margin-bottom: 0px;
+  }
+  a {
+    color: white;
+    background: linear-gradient(346.19deg, #FF4B9C -19.34%, #EF7B40 51.62%);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.0701427);
+    border-radius: 3px;
+    padding: 12px 60px;
+  }
+
+  @media (max-width: 700px) {
+    position: absolute;
+    height: auto;
+    bottom: -60px;
+    p {
+      margin-bottom: 25px;
+    }
+    &-content {
+      display: block;
+    }
+  }
+}
+
+.zEWidget-launcher {
+  bottom: 80px !important;
 }

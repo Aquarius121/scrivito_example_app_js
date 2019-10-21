@@ -143,8 +143,7 @@ document.body.getElementsByClassName("content-wrapper")[0].addEventListener(
         "display: none";
     }
 
-    if ((
-      window.location.pathname === "/app-vilkaar-og-betingelser" || window.location.pathname === "/leveringsbetingelser-privat") &&
+    if ((window.location.pathname === "/app-vilkaar-og-betingelser" || window.location.pathname === "/leveringsbetingelser-privat" || window.location.pathname === "/france") &&
         document.getElementsByClassName("cookieConsent").length > 0)
     {
       document.getElementsByClassName("cookieConsent")[0].style="display:none !important"
@@ -158,6 +157,11 @@ document.body.getElementsByClassName("content-wrapper")[0].addEventListener(
     if (window.location.pathname === "/france")
     {
       document.body.className = "french";
+    }
+
+    if (window.location.pathname === "/skift-til-barry6b")
+    {
+      document.body.className = "footer-hide";
     }
 
     if (window.location.pathname === "/skift-til-barry-nu" && document.getElementsByClassName("bg-dark-image").length > 0) {

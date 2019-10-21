@@ -255,7 +255,7 @@
         border-left: 0px;
         &:first-child {
           // margin-top: -50px;
-          // border-right: 0px;
+          border-right: 0px;
           p {
             span, a {
               display: block;
@@ -320,3 +320,20 @@
 //     }
 //   }
 // }
+
+.footer-hide {
+  .footer-widget {
+    .trust-wrapper {
+      border-bottom: none;
+      margin-top: 0;
+      padding-bottom: 0;
+    }
+    .first-wrapper {
+      display: none;
+    } 
+    .second-wrapper {
+      display: none;
+    }
+  }
+  
+}
