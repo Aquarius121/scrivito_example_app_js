@@ -54,7 +54,7 @@ class FooterWidget extends React.Component {
   render() {
     let french = false;
     let espana = false;
-    if (typeof window !== 'undefined' && window.location.pathname === '/france') {
+    if (typeof window !== 'undefined' && (window.location.pathname.indexOf('/france') >= 0)) {
       french = true;
     }
     if (typeof window !== 'undefined' && window.location.pathname === '/espana') {
@@ -72,8 +72,7 @@ class FooterWidget extends React.Component {
               <p>
                 <span>©Barry Danmark ApS</span>
                 <span>CVR 38 99 80 99</span>
-                <a href="/terms-of-service">Terms of service</a>
-                <a href="/privacy-policy">Privacy Policy</a>
+                <a href="/privatlivspolitik">Privacy Policy</a>
               </p>
             </div>
   
@@ -97,7 +96,7 @@ class FooterWidget extends React.Component {
               <br/>
               <label>JOIN THE BARRY-MOVEMENT🙌</label>
               <p>
-                <a href="https://www.facebook.com/getbarry" target="_blank"><i className="fa fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/GetBarry-France-327674134752582/" target="_blank"><i className="fa fa-facebook-f"></i></a>
                 <a href="https://www.instagram.com/getbarry/?hl=en" target="_blank"><i className="fa fa-instagram"></i></a>
                 <a href="https://www.linkedin.com/company/28608159/admin/" target="_blank"><i className="fa fa-linkedin"></i></a>
               </p>
@@ -133,7 +132,7 @@ class FooterWidget extends React.Component {
               <p>
                 ¿Quién dijo que la electricidad tenía que ser complicada y aburrida? 
                 En Barry, queremos que la electricidad sea superfácil y superjusta; para ti y para el planeta.
-                Barry fue lanzado en Dinamarca. Barry es el miembro más joven de la familia Fortum. Fortum es una compañía finlandesa dedicada a la energía que cotiza en bolsa y posee operaciones en la región escandinava, los países bálticos y Polonia. Puedes leer más sobre el grupo Fortum aquí.
+                Barry fue lanzado en Dinamarca. Barry es el miembro más joven de la familia Fortum. Fortum es una compañía finlandesa dedicada a la energía que cotiza en bolsa y posee operaciones en la región escandinava, los países bálticos y Polonia. Puedes leer más sobre el grupo Fortum <a href="https://www.fortum.com/" target="_blank">aquí</a>.
 
               </p>
             </div>

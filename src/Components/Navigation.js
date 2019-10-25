@@ -174,9 +174,9 @@ class Navigation extends React.Component {
           />
           <NavigationSection heightClassName={heightClassName} />
           {/* <ScrollToNextSectionLink heightClassName={heightClassName} /> */}
-          {(window.location.pathname === '/' || window.location.pathname === '/skift-til-barry') && <div className="sticky-bar">
+          {(window.location.pathname === '/' || window.location.pathname === '/skift-til-barry' || window.location.pathname === '/priser' || window.location.pathname === '/tech' || window.location.pathname === '/omos') && <div className="sticky-bar">
             <div className="sticky-bar-content">
-              <p>Vidste du det? Du kan nemt skifte til barry online og vente med at hente app'en senere.</p>
+              <p>Vidste du, at du kan skifte til Barry online og vente med at hente appen til senere? Easy peasy!</p>
               <a href="/signup2">Skift nu</a>
             </div>
           </div>}

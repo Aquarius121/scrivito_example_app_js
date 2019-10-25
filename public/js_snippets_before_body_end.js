@@ -81,6 +81,11 @@ function closeChatbot(ind) {
   frame.contentWindow.location.replace("");
 }
 
+function jumpTo(id) {
+  var elem = document.getElementById(id);
+  elem.scrollIntoView();
+}
+
 function addWaitingList() {
   var params = {
     email: document.getElementsByClassName("send-link-input1")[0].value,
@@ -143,8 +148,7 @@ document.body.getElementsByClassName("content-wrapper")[0].addEventListener(
         "display: none";
     }
 
-    if ((window.location.pathname === "/app-vilkaar-og-betingelser" || window.location.pathname === "/leveringsbetingelser-privat" || window.location.pathname === "/france") &&
-        document.getElementsByClassName("cookieConsent").length > 0)
+    if ((window.location.pathname === "/app-vilkaar-og-betingelser" || window.location.pathname === "/leveringsbetingelser-privat" || window.location.pathname.indexOf("/france") >=0 || window.location.pathname === "/skift-til-barry6b") && document.getElementsByClassName("cookieConsent").length > 0)
     {
       document.getElementsByClassName("cookieConsent")[0].style="display:none !important"
     }
@@ -159,7 +163,7 @@ document.body.getElementsByClassName("content-wrapper")[0].addEventListener(
       document.body.className = "french";
     }
 
-    if (window.location.pathname === "/skift-til-barry6b")
+    if (window.location.pathname === "/skift-til-barry6b" || window.location.pathname === "/skift-til-barry5a2" || window.location.pathname === "/mattias" || window.location.pathname === "/signe" || window.location.pathname === "/privacy-policy")
     {
       document.body.className = "footer-hide";
     }
