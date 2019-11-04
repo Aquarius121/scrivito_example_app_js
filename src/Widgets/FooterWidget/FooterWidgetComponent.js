@@ -25,7 +25,7 @@ class FooterWidget extends React.Component {
     xmlhttp.onreadystatechange = function() {
       if (xmlhttp.readyState === 4) {
         const res = JSON.parse(xmlhttp.response);
-        if (!res.error) {
+        if (res.statusCode === 200) {
           var xmlhttp1 = new XMLHttpRequest();
           xmlhttp1.open(
             "POST",
@@ -39,9 +39,9 @@ class FooterWidget extends React.Component {
     };
     xmlhttp.open(
       "POST",
-      "https://wpk2il4zj0.execute-api.eu-central-1.amazonaws.com/dev/user/add"
+      "https://lblo7zvajf.execute-api.eu-central-1.amazonaws.com/prod/Barry-customer-signup"
     );
-    xmlhttp.setRequestHeader("Content-Type", "application/json");
+    // xmlhttp.setRequestHeader("Content-Type", "application/json");
     xmlhttp.send(JSON.stringify(params));
   }
 
@@ -57,7 +57,7 @@ class FooterWidget extends React.Component {
     if (typeof window !== 'undefined' && (window.location.pathname.indexOf('/france') >= 0)) {
       french = true;
     }
-    if (typeof window !== 'undefined' && window.location.pathname === '/espana') {
+    if (typeof window !== 'undefined' && (window.location.pathname.indexOf('/espana') >= 0)) {
       espana = true;
     }
 
@@ -97,8 +97,8 @@ class FooterWidget extends React.Component {
               <label>JOIN THE BARRY-MOVEMENT🙌</label>
               <p>
                 <a href="https://www.facebook.com/GetBarry-France-327674134752582/" target="_blank"><i className="fa fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/getbarry/?hl=en" target="_blank"><i className="fa fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/company/28608159/admin/" target="_blank"><i className="fa fa-linkedin"></i></a>
+                {/* <a href="https://www.instagram.com/getbarry/?hl=en" target="_blank"><i className="fa fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/28608159/admin/" target="_blank"><i className="fa fa-linkedin"></i></a> */}
               </p>
               
             </div>
@@ -119,7 +119,7 @@ class FooterWidget extends React.Component {
               <p>
                 <span>©Barry Danmark ApS</span>
                 <span>CVR 38 99 80 99</span>
-                <a href="/terms-of-service">Terms of service</a>
+                {window.location.pathname !== '/espana/preinscripcion/gracias' && <a href="/terms-of-service">Terms of service</a>}
                 <a href="/privacy-policy">Privacy Policy</a>
               </p>
             </div>
@@ -145,8 +145,8 @@ class FooterWidget extends React.Component {
               <br/>
               <label>JOIN THE BARRY-MOVEMENT🙌</label>
               <p>
-                <a href="https://www.facebook.com/getbarry" target="_blank"><i className="fa fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/getbarry/?hl=en" target="_blank"><i className="fa fa-instagram"></i></a>
+                <a href="https://www.facebook.com/Barry.Electricidad/" target="_blank"><i className="fa fa-facebook-f"></i></a>
+                {/* <a href="https://www.instagram.com/getbarry/?hl=en" target="_blank"><i className="fa fa-instagram"></i></a> */}
               </p>
               
             </div>
@@ -156,13 +156,23 @@ class FooterWidget extends React.Component {
       )
     }
 
+    let showStore = false;
+    if (window.location.pathname === '/mattias' || window.location.pathname === '/signe' || window.location.pathname === '/mads') {
+      showStore = true;
+    }
+
     return (
       <div className="footer-widget">
-        <div className="trust-wrapper">
+        <div className={`trust-wrapper ${showStore ? 'showstore' : ''}`}>
           <div>
             <img src={trustpilot} />
             <p style={{marginTop: '9px'}}>Se vores anmeldelser <a href="https://dk.trustpilot.com/review/www.getbarry.dk" target="_blank">her</a></p>
           </div>
+          { showStore && <div>
+            <a class="android-mob-link" href="https://getbarry.app.link/fCsndIblhZ"><img height="60" src="https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/b66b66a12fc3e404/6bf3a20d5079/googleplay.svg" alt="google-play"/></a>
+            <a class="ios-mob-link" href="https://getbarry.app.link/fCsndIblhZ"><img height="60" src="https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/8b5068258bd84c5e/892887bc7e79/appstore.svg" alt="apple-store" data-scrivito-is-clickable="true"/>
+            </a>
+          </div>}
           <div>
             <p>God</p>
             <a href="https://dk.trustpilot.com/review/www.getbarry.dk" target="_blank">

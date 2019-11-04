@@ -2,6 +2,7 @@
   display: block;
   max-width: 1320px;
   margin: 0 auto;
+  padding-bottom: 20px;
 
   .trust-wrapper {
     display: flex;
@@ -27,6 +28,17 @@
       flex-direction: column;
       div {
         margin-top: 15px;
+      }
+    }
+
+    &.showstore {
+      @media (max-width: 768px) {
+        height: 170px;
+        justify-content: flex-start;
+        div:nth-child(2) {
+          position: absolute;
+          bottom: 0px;
+        }
       }
     }
   }
@@ -336,4 +348,10 @@
     }
   }
   
+}
+
+.footer-trust-hide {
+  footer {
+    display: none;
+  }
 }

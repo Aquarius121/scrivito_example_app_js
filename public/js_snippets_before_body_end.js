@@ -122,7 +122,7 @@ function addWaitingList() {
   };
   xmlhttp.open(
     "POST",
-    "https://wpk2il4zj0.execute-api.eu-central-1.amazonaws.com/dev/user/add"
+    "https://wpk2il4zj0.execute-api.eu-central-1.amazonaws.com/dev/barry-waiting-list-api-dev-app/user/add"
   );
   xmlhttp.setRequestHeader("Content-Type", "application/json");
   xmlhttp.send(JSON.stringify(params));
@@ -141,7 +141,7 @@ document.body.getElementsByClassName("content-wrapper")[0].addEventListener(
       }
     }
 
-    if (( window.location.pathname === "/signup2" || window.location.pathname === "/skift-til-barry2") &&
+    if (( window.location.pathname === "/signup2" || window.location.pathname === "/skift-til-barry2"|| window.location.pathname.indexOf("/france") >=0 || window.location.pathname.indexOf("/espana") >=0 || window.location.pathname === "/privacy-policy") &&
         document.getElementsByClassName("zEWidget-launcher").length > 0)
      {
       document.getElementsByClassName("zEWidget-launcher")[0].style =
@@ -163,9 +163,13 @@ document.body.getElementsByClassName("content-wrapper")[0].addEventListener(
       document.body.className = "french";
     }
 
-    if (window.location.pathname === "/skift-til-barry6b" || window.location.pathname === "/skift-til-barry5a2" || window.location.pathname === "/mattias" || window.location.pathname === "/signe" || window.location.pathname === "/privacy-policy")
+    if (window.location.pathname === "/skift-til-barry6b" || window.location.pathname === "/skift-til-barry5a2" || window.location.pathname === "/mattias" || window.location.pathname === "/signe" || window.location.pathname === "/mads")
     {
       document.body.className = "footer-hide";
+    }
+
+    if (window.location.pathname === "/privacy-policy") {
+      document.body.className = "footer-trust-hide";
     }
 
     if (window.location.pathname === "/skift-til-barry-nu" && document.getElementsByClassName("bg-dark-image").length > 0) {
